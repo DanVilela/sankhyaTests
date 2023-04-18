@@ -3,6 +3,7 @@ package initial.test.registrer.job.opportunity;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -15,7 +16,12 @@ public class registerJobOpportunityTests {
         WebDriverManager.chromedriver().setup();
         WebDriver browser = new ChromeDriver();
 
-        //open sankhya website
-        browser.get("https://www.sankhya.com.br/carreira/");
+        //open sankhya website carreiras
+        browser.get("https://sankhya.gupy.io/");
+
+        //write and enter the job you want
+        browser.findElement(By.id("job-search")).sendKeys("testes");
+        browser.findElement(By.id("job-search-button")).click();
+        browser.findElement(By.xpath("//*[@id=\"job-listing\"]/ul/li")).click();
     }
 }
